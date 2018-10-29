@@ -1,0 +1,23 @@
+{
+  "name": "insensoryudi",
+  "version": "1.0.0",
+  "description": "projeto individual InSensor",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YudiG12/insensoryudi.git"
+  },
+  "author": "Yudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YudiG12/insensoryudi/issues"
+  },
+  "homepage": "https://github.com/YudiG12/insensoryudi#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5"
+  }
+}
