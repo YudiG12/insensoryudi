@@ -1,8 +1,6 @@
-// PACKAGES SETUP:
 var express = require('express');
 var bodyParser = require('body-parser')
 
-// ROUTERS (CONTROLLERS) SETUP
 var indexRouter = require('./controllers/indexController');
 // var usersRouter = require('./controllers/usersRouter');
 var incubadorasRouter = require('./controllers/incubadorasController');
