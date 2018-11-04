@@ -37,4 +37,11 @@ router.get('/details/:id',function(req,res,next) {
     });
 });
 
+// medição json
+router.get('/medicao/:id',function(req,res,next) {
+    incubadoraService.getMedicao(req.params.id).then((medicao) => {
+        res.json(medicao);
+    });
+});
+
 module.exports = router;

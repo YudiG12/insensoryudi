@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
+var passport = require('passport')
+var session = require('express-session');
 
 var indexRouter = require('./controllers/indexController');
 // var usersRouter = require('./controllers/usersRouter');
@@ -7,6 +9,11 @@ var incubadorasRouter = require('./controllers/incubadorasController');
 // var recemNascidosRouter = require('./controllers/recemNascidosRouter');
 
 const app = express();
+
+// PASSPORT SETUP
+require('./controllers/authController')(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // VIEW ENGINE SETUP
 app.set('views','./views');

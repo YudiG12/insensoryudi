@@ -2,6 +2,7 @@ var Request = require('tedious').Request;
 var Connection = require('tedious').Connection;
 var TYPES = require('tedious').TYPES;
 var Incubadora = require('../models/incubadora');
+var Medicao = require('../models/medicao');
 var config = require('../config');
 
 module.exports = class IncubadoraService {
@@ -18,6 +19,8 @@ module.exports = class IncubadoraService {
                 const request = new Request("select * from incubadora", function (err, rowCount) {
                     if (err)
                         reject(err);
+                    else
+                        console.log(rowCount + ' rows');
                     connection.close();
                 });
 
@@ -75,7 +78,11 @@ module.exports = class IncubadoraService {
 
                 var id = idIncubadora;
 
-                const request = new Request("select * from incubadora where idIncubadora = @id;",function(){
+                const request = new Request("select * from incubadora where idIncubadora = @id;",function(err, rowCount){
+                    if(err)
+                        console.log(err)
+                    else
+                        console.log(rowCount + ' rows');
                     connection.close();
                 });
 
@@ -95,5 +102,33 @@ module.exports = class IncubadoraService {
         });
     }
 
+    // GET ULTIMA MEDICAO DA TABELA MEDICAO
+    getMedicao(idIncubadora) {
+        return new Promise((resolve,reject) => {
+            const connection = new Connection(config);
+
+            connection.on('connect',function(err) {
+                var id = idIncubadora;
+                const request = new Request("select Max(idMedicao), temperatura, umidade from medicao where fkIncubadora = @id group by idMedicao, temperatura, umidade; ", function (err, rowCount) {
+                    if(err)
+                        console.log(err);
+                    else
+                        console.log(rowCount+' rows');
+                    connection.close();
+                });
+                request.addParameter('id',TYPES.Decimal, id);
+                request.on('row', function(columns) {
+
+                    var medicao = new Medicao();
+                    medicao.idMedicao = columns[0].value;
+                    medicao.temperatura = columns[1].value;
+                    medicao.umidade = columns[2].value;
+                    resolve(medicao);
+
+                });
+                connection.execSql(request);
+            });
+        });
+    }
 
 }

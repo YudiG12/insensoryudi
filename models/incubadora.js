@@ -1,4 +1,4 @@
-module.exports = class Incubadora {
+module.exports = class Medicao {
     constructor() {
         this.idIncubadora;
         this.codigo;
