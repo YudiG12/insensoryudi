@@ -1,9 +1,6 @@
 var Request = require('tedious').Request;
 var Connection = require('tedious').Connection;
-var Medicao = require('../models/medicao');
 var TYPES = require('tedious').TYPES;
-
-
 
 module.exports = class usuarioService {
 

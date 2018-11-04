@@ -15,11 +15,11 @@
                 <p class="card-text">
                     <label>Código:</label>
                     <b>
-                        <%= data.codigo %>
+                        <%= data.CodIncubadora %>
                     </b>
                     <br />
                     <label>Status:</label>
-                    <% if(data.status == 1){%>
+                    <% if(data.StatusIncubadora == 1){%>
                     <b>Em uso</b>
                     <br />
                     <label>Identificação Recém Nascido:</label>
@@ -32,7 +32,7 @@
                 </p>
             </div>
             <div class="card-footer">
-                <form action="/incubadoras/details/<%= data.idIncubadora %>" method="GET">
+                <form action="/incubadoras/details/<%= data.IdIncubadora%>" method="GET">
                     <button type="submit" class="btn btn-info">Verificar</button>
                 </form>
             </div>

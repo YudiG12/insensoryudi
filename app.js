@@ -3,15 +3,20 @@ var bodyParser = require('body-parser')
 var passport = require('passport')
 var session = require('express-session');
 
+require('./controllers/authController')(passport);
+
 var indexRouter = require('./controllers/indexController');
 // var usersRouter = require('./controllers/usersRouter');
 var incubadorasRouter = require('./controllers/incubadorasController');
-// var recemNascidosRouter = require('./controllers/recemNascidosRouter');
 
 const app = express();
 
 // PASSPORT SETUP
-require('./controllers/authController')(passport);
+app.use(session({
+    secret: '123',//configure um segredo seu aqui
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -27,6 +32,5 @@ app.use(express.static('./public'));
 app.use('/', indexRouter);
 // app.use('/users',usersRouter);
 app.use('/incubadoras',incubadorasRouter);
-// app.use('/recemNascidos',recemNascidosRouter);
 
 module.exports = app;
