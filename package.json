@@ -1,14 +1,22 @@
 {
   "name": "insensoryudi",
-  "version": "0.0.0",
-  "private": true,
-  "engines": {
-    "node": "8.9.4"
-  },
+  "version": "1.0.0",
+  "description": "projeto individual InSensor",
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YudiG12/insensoryudi.git"
+  },
+  "author": "Yudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YudiG12/insensoryudi/issues"
+  },
+  "homepage": "https://github.com/YudiG12/insensoryudi#readme",
   "dependencies": {
     "connect-ensure-login": "^0.1.1",
     "cryptr": "^4.0.0",
