@@ -18,6 +18,10 @@
 		</div>
 	</div>
 </div>
+
+<div>
+	<a class= "btn  btn-danger" href="/incubadoras/delete/<%= incubadora.IdIncubadora%>">Deletar Incubadora</a>
+</div>
 <script>
 
 	var context = document.getElementById("chart").getContext("2d");
@@ -120,7 +124,7 @@
 
 	function get_data() {
 		// fetch('/incubadoras/medicao/<%= incubadora.IdIncubadora %>').then(function (response) {
-		fetch('/incubadoras/medicao/5').then(function (response) {
+		fetch('/incubadoras/medicao/1').then(function (response) {
 
 			response.json().then(function (data) {
 
