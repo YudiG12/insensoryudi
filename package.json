@@ -19,6 +19,7 @@
   "homepage": "https://github.com/YudiG12/insensoryudi#readme",
   "dependencies": {
     "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "cryptr": "^4.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

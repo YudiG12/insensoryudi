@@ -2,6 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var passport = require('passport')
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var sql = require('mssql');
+var config = require('./config')
 
 require('./controllers/authController')(passport);
 
@@ -17,6 +20,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+sql.connect(config)
+    .then(conn => global.conn = conn)
+    .catch(err => console.log(err));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -28,6 +34,7 @@ app.set('view engine','ejs');
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static('./public'));
 app.use('/', indexRouter);
 // app.use('/users',usersRouter);
