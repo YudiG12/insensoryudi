@@ -44,7 +44,7 @@ router.get('/details/:id', function (req, res, next) {
 });
 
 // medição json
-router.get('/medicao/:id', (req, res, next) => {
+router.get('/medicao/:id', function (req, res, next) {
     let id = req.params.id;
     global.conn.request().query`select Max(idMedicao), temperatura, umidade from medicao where fkIncubadora = ${id} group by idMedicao, temperatura, umidade`
     .then(result => {

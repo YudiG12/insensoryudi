@@ -20,7 +20,7 @@ var connection = new Connection(config);
 // Função que registra a leitura do arduino no banco de dados na Núvem
 function registrarLeitura(temperatura, umidade) {
 
-    let fkIncubadora = 1;
+    let fkIncubadora = 5;
 
     request = new Request("INSERT into medicao  values ( @temperatura, @umidade, @fkIncubadora);", function (err, linhas) {
         if (err) {

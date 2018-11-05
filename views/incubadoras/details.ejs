@@ -119,7 +119,7 @@
 	var randomUmid = Math.random() * 5;
 
 	function get_data() {
-
+		// fetch('/incubadoras/medicao/<%= incubadora.IdIncubadora %>').then(function (response) {
 		fetch('/incubadoras/medicao/5').then(function (response) {
 
 			response.json().then(function (data) {
