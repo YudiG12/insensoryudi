@@ -2,8 +2,13 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-// index login
+// GET index
 router.get('/',function(req,res,next) {
+    res.render('index', { message: null });
+});
+
+// GET login render
+router.get('/login',function(req,res,next) {
     res.render('login', { message: null });
 });
 
