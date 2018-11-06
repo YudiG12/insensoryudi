@@ -20,9 +20,9 @@ router.get('/create', function (req, res, next) {
 // create incubadora - POST
 router.post('/create', function (req, res, next) {
 
-    let codigo = req.body.codigo;
+    let codigo = req.body.desc;
     let status = 0;
-    global.conn.request().query`insert into incubadora values(${codigo},${status})`
+    global.conn.request().query`insert into incubadora values(${desc},${status})`
         .then(result => {
             res.redirect('/incubadoras');
         }).catch(err => {

@@ -870,8 +870,8 @@ aside.left-panel {
 
 .right-panel header.header {
   background: #68cbcc;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 10px 0 8px black;
+          box-shadow: 10px 0 8px black;
   clear: both;
   padding: 0 30px;
   height: 55px;
@@ -2454,6 +2454,7 @@ footer.site-footer {
     overflow: scroll; }
 
   .right-panel header.header {
+    box-shadow: none;
     height: 62px; }
   .right-panel .top-left, .right-panel .top-right {
     width: 100%;
